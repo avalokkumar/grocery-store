@@ -49,6 +49,7 @@ To register user:
 		- createdTimestamp
 		
 To update user's registration details:
+
 	Method: POST
 	ServiceURI: /users
 	Request Body:
