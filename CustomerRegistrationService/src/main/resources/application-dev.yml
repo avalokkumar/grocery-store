@@ -1,5 +1,7 @@
 server:
   contextPath: /api/dev
+  error:
+    include-stacktrace: NEVER
 ---
 spring:
     profiles: dev

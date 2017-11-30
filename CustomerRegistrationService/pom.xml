@@ -4,23 +4,46 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>CustomerRegistrationService</artifactId>
+	<groupId>com.claycorp.nexstore.api</groupId>
 	<packaging>jar</packaging>
 
 	<name>CustomerRegistrationService</name>
 	<description>Micro Service to register a user</description>
 
 	<parent>
-		<groupId>com.claycorp.nexstore.api.v1</groupId>
+		<groupId>com.claycorp.nexstore.api</groupId>
 		<artifactId>ParentService</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	
-	<dependencies>
-		<dependency>
-			<groupId>com.claycorp.nexstore.api.v1</groupId>
-			<artifactId>CommonService</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>${java.source}</source>
+					<target>${java.target}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+			</plugin>
+		</plugins>
+	</build>
 </project>
