@@ -2,24 +2,24 @@
 
 ## Micro Services built on Spring Boot with Mongo DB for E-Commerce application.
 
-## Users
+Users
 
-## Customers
-## Employees
-## Caretaker
-## Products
+Customers
+Employees
+Caretaker
+Products
 
 ## Microservices for Grocery Store
 
-## CustomerRegistrationService
-## CustomerLoginService
-## ProductCatalogueService
-## ShoppingCartService
-## ProductSaleService
-## OrderDeliveryService
-## InvoiceAndPaymentService
-## ProductWarehouseService
-## CustomerRegistrationService
+CustomerRegistrationService
+CustomerLoginService
+ProductCatalogueService
+ShoppingCartService
+ProductSaleService
+OrderDeliveryService
+InvoiceAndPaymentService
+ProductWarehouseService
+CustomerRegistrationService
 
 ## Endpoints:
 
@@ -49,6 +49,7 @@ To register user:
 		- createdTimestamp
 		
 To update user's registration details:
+
 	Method: POST
 	ServiceURI: /users
 	Request Body:
