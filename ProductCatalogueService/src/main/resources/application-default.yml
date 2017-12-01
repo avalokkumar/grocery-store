@@ -1,0 +1,14 @@
+server: 
+---
+spring:
+    profiles:
+      active: dev
+    data:
+      mongodb:
+        host: localhost
+        port: 27017
+        database: nexstore
+        repositories:
+          enabled: true
+
+environment: dev

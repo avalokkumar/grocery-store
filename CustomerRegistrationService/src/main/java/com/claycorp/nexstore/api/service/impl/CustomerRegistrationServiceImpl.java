@@ -1,14 +1,15 @@
 package com.claycorp.nexstore.api.service.impl;
 
+import static org.zalando.problem.Status.BAD_REQUEST;
+
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.zalando.problem.Problem;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import static org.zalando.problem.Status.BAD_REQUEST;
+import org.zalando.problem.Problem;
 import org.zalando.problem.ThrowableProblem;
 
 import com.claycorp.nexstore.api.exception.InvalidUserException;
