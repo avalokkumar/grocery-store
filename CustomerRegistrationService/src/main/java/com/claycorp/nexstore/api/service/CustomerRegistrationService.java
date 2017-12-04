@@ -17,7 +17,7 @@ public interface CustomerRegistrationService {
 
 	List<UserVo> updateUserDetails(UserVo userRequest) throws UpdateFailureException;
 
-	List<String> deleteUserDetails(String userId) throws InvalidUserException;
+	void deleteUserDetails(String userId) throws InvalidUserException;
 
 	List<UserVo> findUserDetails(String userId) throws InvalidUserException;
 }

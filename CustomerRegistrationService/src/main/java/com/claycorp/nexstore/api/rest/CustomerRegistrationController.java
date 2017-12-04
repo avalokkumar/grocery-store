@@ -36,7 +36,7 @@ public class CustomerRegistrationController {
 	@Autowired
 	private ResponseBuilder<UserVo> responseBuilder;
 
-	@GetMapping(path = "/customers")
+	@GetMapping("/customers")
 	public ResponseEntity<CustomResponse<UserVo>> getAllCustomerDetail() {
 		return ResponseEntity.ok().body(responseBuilder.buildResponse(customerRegistrationService.getAllUserDetails(),
 				Collections.emptyList()));
@@ -58,15 +58,16 @@ public class CustomerRegistrationController {
 	}
 
 	@GetMapping("/customers/{userId}")
-	public ResponseEntity<CustomResponse<UserVo>> findOneCustomerDetails(@PathVariable(value="userId") String userId)
+	public ResponseEntity<CustomResponse<UserVo>> findOneCustomerDetails(@PathVariable(value = "userId") String userId)
 			throws GlobalBaseException {
 
 		return ResponseEntity.ok().body(responseBuilder
 				.buildResponse(customerRegistrationService.findUserDetails(userId), Collections.emptyList()));
 	}
-	
+
 	@DeleteMapping("/customers/{userId}")
-	public ResponseEntity<?> deleteCustomerDetails(@PathVariable(value = "userId") String userId) throws GlobalBaseException {
+	public ResponseEntity<?> deleteCustomerDetails(@PathVariable(value = "userId") String userId)
+			throws GlobalBaseException {
 		customerRegistrationService.deleteUserDetails(userId);
 		return ResponseEntity.noContent().build();
 	}

@@ -7,14 +7,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.zalando.problem.Problem;
 import org.zalando.problem.ThrowableProblem;
 
 import com.claycorp.nexstore.api.exception.InvalidProductException;
 import com.claycorp.nexstore.api.exception.UpdateFailureException;
-import com.claycorp.nexstore.api.model.CustomError;
 import com.claycorp.nexstore.api.repository.ProductRepository;
 import com.claycorp.nexstore.api.service.ProductCatalogueService;
 import com.claycorp.nexstore.api.util.ProductCatalogueMapper;
@@ -45,11 +43,6 @@ public class ProductCatalogueServiceImpl implements ProductCatalogueService {
 	@Override
 	public List<ProductVo> updateProductDetails(ProductVo productRequest) throws UpdateFailureException {
 		if (null == productRequest.getId() || productRequest.getId().isEmpty()) {
-			CustomError error = new CustomError();
-			error.setCode("ER41").setMessage("Product id is not passed")
-					.setStatus(String.valueOf(HttpStatus.BAD_REQUEST.value()))
-					.setType(HttpStatus.BAD_REQUEST.getReasonPhrase());
-
 			throw new UpdateFailureException(Arrays.asList(getUpdateFailureProblem()));
 		}
 		return Arrays

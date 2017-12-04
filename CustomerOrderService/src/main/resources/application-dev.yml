@@ -12,9 +12,12 @@ spring:
         database: nexstore
         repositories:
           enabled: true
+    jackson:
+      serialization:
+        write-dates-as-timestamps: false
 ---
 environment: dev
 ---
 spring:
   application:
-    name: CustomerRegistrationService
+    name: CustomerOrderService
