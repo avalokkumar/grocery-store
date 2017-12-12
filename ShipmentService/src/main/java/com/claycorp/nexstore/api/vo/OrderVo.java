@@ -1,46 +1,44 @@
-package com.claycorp.nexstore.api.model;
+package com.claycorp.nexstore.api.vo;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.Id;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 @Document
-public class Order {
+public class OrderVo {
 
-	@Id
 	private String id;
-	private RefOrderStatusCodes statusCode;
-	
-	@JsonDeserialize(using=LocalDateDeserializer.class)
-	@JsonSerialize(using=LocalDateTimeSerializer.class)
+	private RefOrderStatusCodesVo statusCode;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	private LocalDateTime dateOfOrderPlaced;
-	private List<OrderItem> orderDetails;
+	private List<OrderItemVo> orderDetails;
 
-	public Order() {
+	public OrderVo() {
 	}
 
 	public String getId() {
 		return id;
 	}
 
-	public Order setId(String id) {
+	public OrderVo setId(String id) {
 		this.id = id;
 		return this;
 	}
 
-	public RefOrderStatusCodes getStatusCode() {
+	public RefOrderStatusCodesVo getStatusCode() {
 		return statusCode;
 	}
 
-	public Order setStatusCode(RefOrderStatusCodes statusCode) {
+	public OrderVo setStatusCode(RefOrderStatusCodesVo statusCode) {
 		this.statusCode = statusCode;
 		return this;
 	}
@@ -49,16 +47,16 @@ public class Order {
 		return dateOfOrderPlaced;
 	}
 
-	public Order setDateOfOrderPlaced(LocalDateTime dateOfOrderPlaced) {
+	public OrderVo setDateOfOrderPlaced(LocalDateTime dateOfOrderPlaced) {
 		this.dateOfOrderPlaced = dateOfOrderPlaced;
 		return this;
 	}
 
-	public List<OrderItem> getOrderDetails() {
+	public List<OrderItemVo> getOrderDetails() {
 		return orderDetails;
 	}
 
-	public Order setOrderDetails(List<OrderItem> orderDetails) {
+	public OrderVo setOrderDetails(List<OrderItemVo> orderDetails) {
 		this.orderDetails = orderDetails;
 		return this;
 	}

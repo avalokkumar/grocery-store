@@ -3,8 +3,6 @@ package com.claycorp.nexstore.api.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.Id;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -15,7 +13,6 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 @Document
 public class Order {
 
-	@Id
 	private String id;
 	private RefOrderStatusCodes statusCode;
 	

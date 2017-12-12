@@ -79,11 +79,10 @@
 			<version>0.22.0</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.hibernate.javax.persistence</groupId>
-		    <artifactId>hibernate-jpa-2.1-api</artifactId>
-		    <version>1.0.0.Final</version>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>1.0.0.Final</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -116,6 +115,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

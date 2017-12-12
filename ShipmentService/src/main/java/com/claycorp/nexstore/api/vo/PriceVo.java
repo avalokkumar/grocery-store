@@ -1,38 +1,39 @@
 package com.claycorp.nexstore.api.vo;
 
-import com.claycorp.nexstore.api.model.Price;
-
 public class PriceVo {
 
 	private String currency;
 	private Double amount;
-	
+
 	public PriceVo() {
 	}
 
-	public PriceVo(Price price) {
-		this.currency = price.getCurrency();
-		this.amount = price.getAmount();
+	public PriceVo(String currency, Double amount) {
+		super();
+		this.currency = currency;
+		this.amount = amount;
 	}
 
 	public String getCurrency() {
 		return currency;
 	}
 
-	public void setCurrency(String currency) {
+	public PriceVo setCurrency(String currency) {
 		this.currency = currency;
+		return this;
 	}
 
 	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public PriceVo setAmount(Double amount) {
 		this.amount = amount;
+		return this;
 	}
 
 	@Override
 	public String toString() {
-		return "PriceVo [currency=" + currency + ", amount=" + amount + "]";
+		return "Price [currency=" + currency + ", amount=" + amount + "]";
 	}
 }

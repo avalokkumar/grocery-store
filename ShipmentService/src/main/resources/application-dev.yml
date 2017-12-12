@@ -1,0 +1,24 @@
+server:
+  contextPath: /api/dev
+  port: 8082
+  error:
+    include-stacktrace: NEVER
+---
+spring:
+    profiles: dev
+    data:
+      mongodb:
+        host: localhost
+        port: 27017
+        database: nexstore
+        repositories:
+          enabled: true
+    jackson:
+      serialization:
+        write-dates-as-timestamps: false
+---
+environment: dev
+---
+spring:
+  application:
+    name: ShipmentService
