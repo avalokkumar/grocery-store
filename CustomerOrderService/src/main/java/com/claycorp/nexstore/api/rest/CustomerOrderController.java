@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.claycorp.nexstore.api.exception.GlobalBaseException;
 import com.claycorp.nexstore.api.mock.MockResponseBuilder;
 import com.claycorp.nexstore.api.model.CustomResponse;
+import com.claycorp.nexstore.api.model.OrderVo;
 import com.claycorp.nexstore.api.service.CustomerOrderService;
 import com.claycorp.nexstore.api.util.ResponseBuilder;
-import com.claycorp.nexstore.api.vo.OrderVo;
 
 @Controller
-@RequestMapping(path = "/claycorp/api/v1", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(path = "/claycorp/api/v1")
 public class CustomerOrderController {
 
 	@Autowired
@@ -42,27 +42,27 @@ public class CustomerOrderController {
 				responseBuilder.buildResponse(customerOrderService.getAllOrderDetails(), Collections.emptyList()));
 	}
 
-	@PostMapping("/orders")
+	@GetMapping(path = "/orders/{orderId}")
+	public ResponseEntity<CustomResponse<OrderVo>> findOneOrderDetails(@PathVariable(value = "orderId") String orderId)
+			throws GlobalBaseException {
+
+		return ResponseEntity.ok().body(
+				responseBuilder.buildResponse(customerOrderService.findOrderDetails(orderId), Collections.emptyList()));
+	}
+
+	@PostMapping(path = "/orders", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<CustomResponse<OrderVo>> addOrderDetails(@RequestBody OrderVo orderRequest) {
 
 		return ResponseEntity.created(URI.create("/api/dev/claycorp/api/v1/orders")).body(responseBuilder
 				.buildResponse(customerOrderService.addOrderDetails(orderRequest), Collections.emptyList()));
 	}
 
-	@PutMapping("/orders")
+	@PutMapping(path = "/orders", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<CustomResponse<OrderVo>> updateOrderDetails(@RequestBody OrderVo orderRequest)
 			throws GlobalBaseException {
 
 		return ResponseEntity.ok().body(responseBuilder
 				.buildResponse(customerOrderService.updateOrderDetails(orderRequest), Collections.emptyList()));
-	}
-
-	@GetMapping("/orders/{orderId}")
-	public ResponseEntity<CustomResponse<OrderVo>> findOneOrderDetails(@PathVariable(value = "orderId") String orderId)
-			throws GlobalBaseException {
-
-		return ResponseEntity.ok().body(
-				responseBuilder.buildResponse(customerOrderService.findOrderDetails(orderId), Collections.emptyList()));
 	}
 
 	@DeleteMapping("/orders/{orderId}")
@@ -73,7 +73,7 @@ public class CustomerOrderController {
 	}
 
 	@GetMapping("/orders/mock")
-	public ResponseEntity<CustomResponse<OrderVo>> findMockOrderDetails() throws GlobalBaseException {
+	public ResponseEntity<CustomResponse<OrderVo>> findMockOrderDetails() {
 
 		return ResponseEntity.ok().body(
 				responseBuilder.buildResponse(Arrays.asList(mockBuilder.buildMockOrder()), Collections.emptyList()));

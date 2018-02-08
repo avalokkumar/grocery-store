@@ -19,38 +19,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.claycorp.nexstore.api.exception.GlobalBaseException;
 import com.claycorp.nexstore.api.mock.MockResponseBuilder;
 import com.claycorp.nexstore.api.model.CustomResponse;
+import com.claycorp.nexstore.api.model.ShipmentsVo;
 import com.claycorp.nexstore.api.service.ShipmentService;
 import com.claycorp.nexstore.api.util.ResponseBuilder;
-import com.claycorp.nexstore.api.vo.ShipmentsVo;
 
 @Controller
-@RequestMapping(path = "/claycorp/api/v1", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, 
-						produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(path = "/claycorp/api/v1")
 public class ShipmentController {
 
 	@Autowired
 	private ResponseBuilder<ShipmentsVo> responseBuilder;
-	
+
 	@Autowired
 	private ShipmentService shipmentService;
-	
+
 	@Autowired
 	private MockResponseBuilder mockBuilder;
 
-	@GetMapping(path = "/shipments")
+	@GetMapping(path = "/shipments", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<CustomResponse<ShipmentsVo>> getAllProductDetail() {
-		return ResponseEntity.ok().body(responseBuilder.buildResponse(shipmentService.getAllShipmentDetails(),
-				Collections.emptyList()));
+		return ResponseEntity.ok()
+				.body(responseBuilder.buildResponse(shipmentService.getAllShipmentDetails(), Collections.emptyList()));
 	}
 
-	@PostMapping("/shipments")
+	@PostMapping(path = "/shipments", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<CustomResponse<ShipmentsVo>> addProductDetails(@RequestBody ShipmentsVo productRequest) {
 
 		return ResponseEntity.created(URI.create("/api/dev/claycorp/api/v1/shipments")).body(responseBuilder
 				.buildResponse(shipmentService.addShipmentDetails(productRequest), Collections.emptyList()));
 	}
 
-	@PutMapping("/shipments")
+	@PutMapping(path = "/shipments", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<CustomResponse<ShipmentsVo>> updateProductDetails(@RequestBody ShipmentsVo productRequest)
 			throws GlobalBaseException {
 
@@ -58,21 +57,21 @@ public class ShipmentController {
 				.buildResponse(shipmentService.updateShipmentDetails(productRequest), Collections.emptyList()));
 	}
 
-	@GetMapping("/shipments/{shipmentId}")
+	@GetMapping(path = "/shipments/{shipmentId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<CustomResponse<ShipmentsVo>> findOneProductDetails(
 			@PathVariable(value = "shipmentId") String shipmentId) throws GlobalBaseException {
 
-		return ResponseEntity.ok().body(responseBuilder
-				.buildResponse(shipmentService.findShipmentDetails(shipmentId), Collections.emptyList()));
+		return ResponseEntity.ok().body(responseBuilder.buildResponse(shipmentService.findShipmentDetails(shipmentId),
+				Collections.emptyList()));
 	}
 
-	@DeleteMapping("/shipments/{shipmentId}")
+	@DeleteMapping(path = "/shipments/{shipmentId}")
 	public ResponseEntity<?> deleteProductDetails(@PathVariable(value = "shipmentId") String shipmentId)
 			throws GlobalBaseException {
 		shipmentService.deleteShipmentDetails(shipmentId);
 		return ResponseEntity.noContent().build();
 	}
-	
+
 	@GetMapping("/shipments/mock")
 	public ResponseEntity<CustomResponse<ShipmentsVo>> findMockOrderDetails() throws GlobalBaseException {
 

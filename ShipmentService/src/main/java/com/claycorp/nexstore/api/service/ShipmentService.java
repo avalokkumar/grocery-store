@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.claycorp.nexstore.api.exception.InvalidShipmentException;
 import com.claycorp.nexstore.api.exception.UpdateFailureException;
-import com.claycorp.nexstore.api.vo.ShipmentsVo;
+import com.claycorp.nexstore.api.model.ShipmentsVo;
 
 @Service
 public interface ShipmentService {

@@ -1,0 +1,563 @@
+{
+	"info": {
+		"name": "grocery-store",
+		"_postman_id": "c3c6d8b5-f909-3e7d-f7c4-5a3876fab1b6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/orders",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"orders"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderStatusCode\" : {\r\n        \"orderStatusCode\" : \"ST03\",\r\n        \"orderStatusDescription\" : \"Feedback Pending\"\r\n    },\r\n    \"dateOfOrderPlaced\" : \"2017-10-04 16:00:31\",\r\n    \"orderDetails\" : [ \r\n        {\r\n            \"orderItemId\" : \"32a35345sa31dsd\",\r\n            \"productId\" : \"asd453\",\r\n            \"itemStatusCode\" : {\r\n                \"orderItemStatusCode\" : \"ST24\",\r\n                \"orderItemStatusDescription\" : \"Ready to deliver\"\r\n            },\r\n            \"itemQuantity\" : 4,\r\n            \"itemPrice\" : {\r\n                \"currency\" : \"INR\",\r\n                \"amount\" : 31224.0\r\n            },\r\n            \"rmaNumber\" : 5345654,\r\n            \"rmaIssuedBy\" : \"Clayman\",\r\n            \"rmaIssuedDate\" : \"2017-12-04 16:00:31\",\r\n            \"otherOrderItemDetails\" : \"Nothing as yet\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/dev/claycorp/api/v1/orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"orders",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Order",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/dev/claycorp/api/v1/orders/5a2597a5d5f2eb93c8b6496f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"orders",
+						"5a2597a5d5f2eb93c8b6496f"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderStatusCode\" : {\r\n        \"orderStatusCode\" : \"ST03\",\r\n        \"orderStatusDescription\" : \"Feedback Pending\"\r\n    },\r\n    \"dateOfOrderPlaced\" : \"2017-10-04 16:00:31\",\r\n    \"orderDetails\" : [ \r\n        {\r\n            \"orderItemId\" : \"32a35345sa31dsd\",\r\n            \"productId\" : \"asd453\",\r\n            \"itemStatusCode\" : {\r\n                \"orderItemStatusCode\" : \"ST24\",\r\n                \"orderItemStatusDescription\" : \"Ready to deliver\"\r\n            },\r\n            \"itemQuantity\" : 4,\r\n            \"itemPrice\" : {\r\n                \"currency\" : \"INR\",\r\n                \"amount\" : 31224.0\r\n            },\r\n            \"rmaNumber\" : 5345654,\r\n            \"rmaIssuedBy\" : \"Clayman\",\r\n            \"rmaIssuedDate\" : \"2017-12-04 16:00:31\",\r\n            \"otherOrderItemDetails\" : \"Nothing as yet\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/dev/claycorp/api/v1/orders/5a7c352353525998e80b1642",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"orders",
+						"5a7c352353525998e80b1642"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All CUstomers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/customers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"customers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/customers/5a1ec60d01153392dc2cb37b",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"customers",
+						"5a1ec60d01153392dc2cb37b"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"firstName\": \"Clayman\",\n    \"lastName\": \"D2n\",\n    \"emailId\": \"asdasd@da.com\",\n    \"gender\": \"Male\",\n    \"username\": \"ven\",\n    \"password\": \"adsads454\",\n    \"phoneNumber\": \"345345345\",\n    \"address\": {\n        \"address1\": \"Park Stree1\",\n        \"address2\": \"Stree4\",\n        \"landmark\": \"Joan\",\n        \"pinCode\": \"543554\"\n    },\n    \"city\": \"New Jersey\",\n    \"state\": \"Oregon\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/customers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"customers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"userId\": \"5a7c516a535259790059bc87\",\n    \"firstName\": \"Claymonstre\",\n    \"lastName\": \"Monstre\",\n    \"emailId\": \"avclay@da.com\",\n    \"gender\": \"Male\",\n    \"username\": \"avclay\",\n    \"password\": \"jdskah736284\",\n    \"phoneNumber\": \"242342344\",\n    \"address\": {\n        \"address1\": \"Church Stree1\",\n        \"address2\": \"Stree2\",\n        \"landmark\": \"Park plaza\",\n        \"pinCode\": \"3424234\"\n    },\n    \"city\": \"Oregon\",\n    \"state\": \"New Jersy\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/customers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"customers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/customers/5a7c533b535259b56826e9be",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"customers",
+						"5a7c533b535259b56826e9be"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/dev/claycorp/api/v1/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"products",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/dev/claycorp/api/v1/products/5a211f5178ef01c384774749",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"products",
+						"5a211f5178ef01c384774749"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"productType\": {\n                \"typeCode\": \"P002\",\n                \"parentTypeCode\": \"P002\",\n                \"typeDescription\": \"Product2\"\n            },\n            \"returnMerchandiseAuthorizationNr\": \"Slack\",\n            \"productName\": \"Hard drive\",\n            \"price\": {\n                \"currency\": \"INR\",\n                \"amount\": 2424\n            },\n            \"color\": \"Black\",\n            \"size\": \"Grey\",\n            \"description\": \"Hard disk with 1 TB storage\",\n            \"otherProductDetails\": \"USB 3.0\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/dev/claycorp/api/v1/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"products",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"productId\": \"5a7c860caca265ca8c2fcb7d\",\n    \"productType\": {\n        \"typeCode\": \"P004\",\n        \"parentTypeCode\": \"P005\",\n        \"typeDescription\": \"Product12\"\n    },\n    \"returnMerchandiseAuthorizationNr\": \"Skadoodle\",\n    \"productName\": \"Hard drive\",\n    \"price\": {\n        \"currency\": \"INR\",\n        \"amount\": 2424\n    },\n    \"color\": \"Black\",\n    \"size\": \"Grey\",\n    \"description\": \"Hard disk with 1 TB storage\",\n    \"otherProductDetails\": \"USB 3.0\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/dev/claycorp/api/v1/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"products",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/dev/claycorp/api/v1/products/5a7c866baca265ca8c2fcb7e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"products",
+						"5a7c866baca265ca8c2fcb7e"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Shipments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/shipments",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"shipments"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shipment by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/shipments/5a2d2a263297d2b1e04de170",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"shipments",
+						"5a2d2a263297d2b1e04de170"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Shipments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order\": {\n        \"id\": \"aert1323\",\n        \"statusCode\": {\n            \"orderStatusCode\": \"ST41\",\n            \"orderStatusDescription\": \"In Progress\"\n        },\n        \"dateOfOrderPlaced\": \"2018-01-10 17:56:17\",\n        \"orderDetails\": [\n            {\n                \"orderItemId\": \"ahadst327ga732yhdafd\",\n                \"productId\": \"adsa3242d23adda31dsa\",\n                \"orderItemStatusCode\": {\n                    \"orderItemStatusCode\": \"ST12\",\n                    \"orderItemStatusDescription\": \"In Progress\"\n                },\n                \"orderItemQuantity\": 3,\n                \"orderItemPrice\": {\n                    \"currency\": \"INR\",\n                    \"amount\": 342432\n                },\n                \"rmaNumber\": 32423424,\n                \"rmaIssuedBy\": \"Clayman\",\n                \"rmaIssuedDate\": \"2017-12-10 17:56:17\",\n                \"otherOrderItemDetails\": \"Something else\"\n            }\n        ]\n    },\n    \"invoiceNumber\": 23423424,\n    \"shipmentTrackingNumber\": 32425425,\n    \"shipmentDate\": \"2017-12-10 17:56:17\",\n    \"otherShipmentDetails\": \"Something\",\n    \"shipmentItems\": [\n        {\n            \"orderItemVo\": {\n                \"orderItemId\": \"ahadst327ga732yhdafd\",\n                \"productId\": \"adsa3242d23adda31dsa\",\n                \"orderItemStatusCode\": {\n                    \"orderItemStatusCode\": \"ST12\",\n                    \"orderItemStatusDescription\": \"In Progress\"\n                },\n                \"orderItemQuantity\": 3,\n                \"orderItemPrice\": {\n                    \"currency\": \"INR\",\n                    \"amount\": 342432\n                },\n                \"rmaNumber\": 32423424,\n                \"rmaIssuedBy\": \"Clayman\",\n                \"rmaIssuedDate\": \"2017-12-10 17:56:17\",\n                \"otherOrderItemDetails\": \"Something else\"\n            },\n            \"shippedOrderItem\": \"3242ewr2ew24fdfsf2\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/shipments",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"shipments"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Shipment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"shipmentId\": \"5a7c8f54aca26559dcf38748\",\n    \"order\": {\n        \"id\": \"aabbcc1234\",\n        \"statusCode\": {\n            \"orderStatusCode\": \"ST44\",\n            \"orderStatusDescription\": \"Delivered\"\n        },\n        \"dateOfOrderPlaced\": \"2018-01-10 17:56:17\",\n        \"orderDetails\": [\n            {\n                \"orderItemId\": \"qwerty12313\",\n                \"productId\": \"qweqeqwe\",\n                \"orderItemStatusCode\": {\n                    \"orderItemStatusCode\": \"ST12\",\n                    \"orderItemStatusDescription\": \"In Progress\"\n                },\n                \"orderItemQuantity\": 3,\n                \"orderItemPrice\": {\n                    \"currency\": \"INR\",\n                    \"amount\": 342432\n                },\n                \"rmaNumber\": 32423424,\n                \"rmaIssuedBy\": \"Clayman\",\n                \"rmaIssuedDate\": \"2017-12-10 17:56:17\",\n                \"otherOrderItemDetails\": \"Something else\"\n            }\n        ]\n    },\n    \"invoiceNumber\": 23423424,\n    \"shipmentTrackingNumber\": 32425425,\n    \"shipmentDate\": \"2017-12-10 17:56:17\",\n    \"otherShipmentDetails\": \"Something\",\n    \"shipmentItems\": [\n        {\n            \"orderItemVo\": {\n                \"orderItemId\": \"ahadst327ga732yhdafd\",\n                \"productId\": \"adsa3242d23adda31dsa\",\n                \"orderItemStatusCode\": {\n                    \"orderItemStatusCode\": \"ST12\",\n                    \"orderItemStatusDescription\": \"In Progress\"\n                },\n                \"orderItemQuantity\": 3,\n                \"orderItemPrice\": {\n                    \"currency\": \"INR\",\n                    \"amount\": 342432\n                },\n                \"rmaNumber\": 32423424,\n                \"rmaIssuedBy\": \"Clayman\",\n                \"rmaIssuedDate\": \"2017-12-10 17:56:17\",\n                \"otherOrderItemDetails\": \"Something else\"\n            },\n            \"shippedOrderItem\": \"3242ewr2ew24fdfsf2\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/shipments",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"shipments"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Shipment By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{baseUrl}}/api/dev/claycorp/api/v1/shipments/5a2d2b8e3297d2b1e04de171",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"dev",
+						"claycorp",
+						"api",
+						"v1",
+						"shipments",
+						"5a2d2b8e3297d2b1e04de171"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

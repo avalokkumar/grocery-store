@@ -5,13 +5,13 @@ import java.util.Arrays;
 
 import org.springframework.stereotype.Service;
 
-import com.claycorp.nexstore.api.vo.OrderItemVo;
-import com.claycorp.nexstore.api.vo.OrderVo;
-import com.claycorp.nexstore.api.vo.PriceVo;
-import com.claycorp.nexstore.api.vo.RefOrderItemStatusCodesVo;
-import com.claycorp.nexstore.api.vo.RefOrderStatusCodesVo;
-import com.claycorp.nexstore.api.vo.ShipmentItemsVo;
-import com.claycorp.nexstore.api.vo.ShipmentsVo;
+import com.claycorp.nexstore.api.model.OrderItemVo;
+import com.claycorp.nexstore.api.model.OrderVo;
+import com.claycorp.nexstore.api.model.PriceVo;
+import com.claycorp.nexstore.api.model.RefOrderItemStatusCodesVo;
+import com.claycorp.nexstore.api.model.RefOrderStatusCodesVo;
+import com.claycorp.nexstore.api.model.ShipmentItemsVo;
+import com.claycorp.nexstore.api.model.ShipmentsVo;
 
 @Service
 public class MockResponseBuilder {

@@ -6,20 +6,20 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.claycorp.nexstore.api.model.Order;
-import com.claycorp.nexstore.api.model.OrderItem;
-import com.claycorp.nexstore.api.model.Price;
-import com.claycorp.nexstore.api.model.RefOrderItemStatusCodes;
-import com.claycorp.nexstore.api.model.RefOrderStatusCodes;
-import com.claycorp.nexstore.api.model.ShipmentItems;
-import com.claycorp.nexstore.api.model.Shipments;
-import com.claycorp.nexstore.api.vo.OrderItemVo;
-import com.claycorp.nexstore.api.vo.OrderVo;
-import com.claycorp.nexstore.api.vo.PriceVo;
-import com.claycorp.nexstore.api.vo.RefOrderItemStatusCodesVo;
-import com.claycorp.nexstore.api.vo.RefOrderStatusCodesVo;
-import com.claycorp.nexstore.api.vo.ShipmentItemsVo;
-import com.claycorp.nexstore.api.vo.ShipmentsVo;
+import com.claycorp.nexstore.api.entity.Order;
+import com.claycorp.nexstore.api.entity.OrderItem;
+import com.claycorp.nexstore.api.entity.Price;
+import com.claycorp.nexstore.api.entity.RefOrderItemStatusCodes;
+import com.claycorp.nexstore.api.entity.RefOrderStatusCodes;
+import com.claycorp.nexstore.api.entity.ShipmentItems;
+import com.claycorp.nexstore.api.entity.Shipments;
+import com.claycorp.nexstore.api.model.OrderItemVo;
+import com.claycorp.nexstore.api.model.OrderVo;
+import com.claycorp.nexstore.api.model.PriceVo;
+import com.claycorp.nexstore.api.model.RefOrderItemStatusCodesVo;
+import com.claycorp.nexstore.api.model.RefOrderStatusCodesVo;
+import com.claycorp.nexstore.api.model.ShipmentItemsVo;
+import com.claycorp.nexstore.api.model.ShipmentsVo;
 
 @Service
 public class ShipmentMapper {

@@ -6,15 +6,15 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.claycorp.nexstore.api.model.Address;
-import com.claycorp.nexstore.api.model.User;
-import com.claycorp.nexstore.api.vo.AddressVo;
-import com.claycorp.nexstore.api.vo.UserVo;
+import com.claycorp.nexstore.api.entity.Address;
+import com.claycorp.nexstore.api.entity.Customer;
+import com.claycorp.nexstore.api.model.AddressVo;
+import com.claycorp.nexstore.api.model.UserVo;
 
 @Component
 public class CustomerRegistrationMapper {
 
-	public UserVo mapUserToUserVo(User user) {
+	public UserVo mapUserToUserVo(Customer user) {
 
 		UserVo userVo = new UserVo();
 		AddressVo addressVo = new AddressVo();
@@ -28,13 +28,13 @@ public class CustomerRegistrationMapper {
 		return userVo;
 	}
 
-	public List<UserVo> mapUserToUserVo(List<User> user) {
+	public List<UserVo> mapUserToUserVo(List<Customer> user) {
 		return user.stream().filter(Objects::nonNull).map(this::mapUserToUserVo).collect(Collectors.toList());
 	}
 	
-	public User mapUserVoToUser(UserVo userVo) {
+	public Customer mapUserVoToUser(UserVo userVo) {
 
-		User user = new User();
+		Customer user = new Customer();
 		Address address = new Address();
 		address.setAddress1(userVo.getAddressVo().getAddress1()).setAddress2(userVo.getAddressVo().getAddress2())
 				.setLandmark(userVo.getAddressVo().getLandmark()).setPinCode(userVo.getAddressVo().getPinCode());
@@ -46,7 +46,7 @@ public class CustomerRegistrationMapper {
 		return user;
 	}
 	
-	public List<User> mapUserVoToUser(List<UserVo> user) {
+	public List<Customer> mapUserVoToUser(List<UserVo> user) {
 		return user.stream().filter(Objects::nonNull).map(this::mapUserVoToUser).collect(Collectors.toList());
 	}
 }

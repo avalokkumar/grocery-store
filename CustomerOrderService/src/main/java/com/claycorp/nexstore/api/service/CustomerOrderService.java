@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.claycorp.nexstore.api.exception.InvalidOrderException;
-import com.claycorp.nexstore.api.vo.OrderVo;
+import com.claycorp.nexstore.api.model.OrderVo;
 
 @Service
 public interface CustomerOrderService {

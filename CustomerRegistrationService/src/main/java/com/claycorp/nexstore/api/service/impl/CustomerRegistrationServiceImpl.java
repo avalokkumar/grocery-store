@@ -11,54 +11,54 @@ import org.springframework.stereotype.Service;
 import org.zalando.problem.Problem;
 import org.zalando.problem.ThrowableProblem;
 
+import com.claycorp.nexstore.api.entity.Customer;
 import com.claycorp.nexstore.api.exception.InvalidUserException;
 import com.claycorp.nexstore.api.exception.UpdateFailureException;
-import com.claycorp.nexstore.api.model.User;
+import com.claycorp.nexstore.api.model.UserVo;
 import com.claycorp.nexstore.api.repository.UserRepository;
 import com.claycorp.nexstore.api.service.CustomerRegistrationService;
 import com.claycorp.nexstore.api.util.CustomerRegistrationMapper;
-import com.claycorp.nexstore.api.vo.UserVo;
 
 @Service
 public class CustomerRegistrationServiceImpl implements CustomerRegistrationService {
 
 	@Autowired
-	private UserRepository userRepo;
+	private UserRepository userRepository;
 
 	@Autowired
 	private CustomerRegistrationMapper mapper;
 
 	@Override
 	public List<UserVo> getAllUserDetails() {
-		List<User> users = userRepo.findAll();
+		List<Customer> users = userRepository.findAll();
 		return mapper.mapUserToUserVo(users);
 	}
 
 	@Override
 	public List<UserVo> addUserDetails(UserVo userVo) {
-		return Arrays.asList(mapper.mapUserToUserVo(userRepo.save(mapper.mapUserVoToUser(userVo))));
+		return Arrays.asList(mapper.mapUserToUserVo(userRepository.save(mapper.mapUserVoToUser(userVo))));
 	}
 
 	@Override
 	public List<UserVo> updateUserDetails(UserVo userRequest) throws UpdateFailureException {
-		if (null != userRequest.getUserId() || userRequest.getUserId().isEmpty()) {
+		if (null == userRequest.getUserId() || userRequest.getUserId().isEmpty()) {
 			throw new UpdateFailureException(Arrays.asList(getUpdateFailureProblem()));
 		}
-		return Arrays.asList(mapper.mapUserToUserVo(userRepo.save(mapper.mapUserVoToUser(userRequest))));
+		return Arrays.asList(mapper.mapUserToUserVo(userRepository.save(mapper.mapUserVoToUser(userRequest))));
 	}
 
 	@Override
 	public void deleteUserDetails(String userId) throws InvalidUserException {
-		User user = userRepo.findOne(userId);
+		Customer user = userRepository.findOne(userId);
 		if (null == user) {
 			throw new InvalidUserException(Arrays.asList(getInvalidUserException()));
 		}
-		userRepo.delete(userId);
+		userRepository.delete(userId);
 	}
 
 	@Override
 	public List<UserVo> findUserDetails(String userId) throws InvalidUserException {
-		User user = userRepo.findOne(userId);
+		Customer user = userRepository.findOne(userId);
 		if (null == user) {
 			throw new InvalidUserException(Arrays.asList(getInvalidUserException()));
 		}

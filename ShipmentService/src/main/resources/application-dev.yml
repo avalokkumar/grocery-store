@@ -1,7 +1,6 @@
 server:
   contextPath: /api/dev
-  port: 8082
-  error:
+  error: 
     include-stacktrace: NEVER
 ---
 spring:

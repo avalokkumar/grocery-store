@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.claycorp.nexstore.api.exception.InvalidUserException;
 import com.claycorp.nexstore.api.exception.UpdateFailureException;
-import com.claycorp.nexstore.api.vo.UserVo;
+import com.claycorp.nexstore.api.model.UserVo;
 
 @Service
 public interface CustomerRegistrationService {

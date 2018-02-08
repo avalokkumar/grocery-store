@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 import org.zalando.problem.Problem;
 import org.zalando.problem.ThrowableProblem;
 
+import com.claycorp.nexstore.api.entity.Shipments;
 import com.claycorp.nexstore.api.exception.InvalidShipmentException;
 import com.claycorp.nexstore.api.exception.UpdateFailureException;
-import com.claycorp.nexstore.api.model.Shipments;
+import com.claycorp.nexstore.api.model.ShipmentsVo;
 import com.claycorp.nexstore.api.repository.ShipmentRepository;
 import com.claycorp.nexstore.api.service.ShipmentService;
 import com.claycorp.nexstore.api.util.ShipmentMapper;
-import com.claycorp.nexstore.api.vo.ShipmentsVo;
 
 @Service
 public class ShipmentServiceImpl implements ShipmentService {
