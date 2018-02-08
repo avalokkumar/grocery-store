@@ -1,0 +1,9 @@
+server:
+  contextPath: /api/dev
+  port: 8888
+---
+environment: dev
+---
+spring:
+  application:
+    name: ConfigServer
