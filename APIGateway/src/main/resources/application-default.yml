@@ -1,0 +1,7 @@
+server: 
+---
+spring:
+    profiles:
+      active: dev
+
+environment: dev

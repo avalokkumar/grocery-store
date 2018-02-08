@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: APIGateway
+  cloud:
+    config:
+      uri: http://localhost:8888
+      
+---
+
+spring:
+  profiles: dev
+  cloud:
+     config:
+        uri: http://ConfigServer:8888
