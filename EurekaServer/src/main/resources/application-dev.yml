@@ -11,3 +11,6 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+  datacenter: South_East_Asia
+  environment: Dev
+      

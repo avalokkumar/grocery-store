@@ -13,8 +13,7 @@ spring:
         database: nexstore
         repositories:
           enabled: true
----
-
+          
 eureka:
   client:
     registerWithEureka: true
@@ -22,4 +21,4 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8282/eureka/
   instance:
-    instance-id: ${spring.application.name}:${random.int}
+    instance-id: ${spring.application.name}

@@ -1,5 +1,6 @@
 server:
   contextPath: /api/dev
+  port: 0
   error: 
     include-stacktrace: NEVER
 ---
@@ -16,8 +17,11 @@ spring:
       serialization:
         write-dates-as-timestamps: false
 ---
-environment: dev
----
-spring:
-  application:
-    name: ShipmentService
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8282/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
