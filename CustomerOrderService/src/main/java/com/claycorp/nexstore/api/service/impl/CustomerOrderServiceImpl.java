@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ import com.claycorp.nexstore.api.util.ExceptionUtil;
 @Service
 public class CustomerOrderServiceImpl implements CustomerOrderService {
 
+	private static final Logger logger = LoggerFactory.getLogger(CustomerOrderServiceImpl.class);
+	
 	@Autowired
 	private OrderRepository orderRepo;
 
@@ -29,6 +33,7 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 
 	@Override
 	public List<OrderVo> getAllOrderDetails() {
+		logger.debug("Entering getAllOrderDetails method inside CustomerOrderServiceImpl class");
 		return mapper.mapOrderToOrderVo(orderRepo.findAll());
 	}
 
@@ -47,7 +52,7 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 		if (null == orderRequest.getOrderId() || orderRequest.getOrderId().isEmpty()) {
 			throw new InvalidOrderException(Arrays.asList(exceptionUtil.getUpdateFailureException()));
 		}
-		
+
 		return Collections
 				.singletonList(mapper.mapOrderToOrderVo(orderRepo.save(mapper.mapOrderVoToOrder(orderRequest))));
 	}
@@ -60,5 +65,4 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 		}
 		orderRepo.delete(order);
 	}
-
 }

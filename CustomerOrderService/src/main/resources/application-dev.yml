@@ -22,6 +22,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8282/eureka/
+      defaultZone: http://localhost:8761/eureka/
   instance:
-    instance-id: ${spring.application.name}:${random.int}
+    instance-id: ${spring.application.name}
+    hostname: localhost

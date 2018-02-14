@@ -6,17 +6,30 @@ import java.util.List;
 import javax.persistence.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 public class Shipments {
 
 	@Id
 	private String id;
+	
+	@Field("order")
 	private Order order;
+	
+	@Field("invoiceNumber")
 	private Long invoiceNumber;
+	
+	@Field("shipmentTrackingNumber")
 	private Long shipmentTrackingNumber;
+	
+	@Field("shipmentDate")
 	private LocalDateTime shipmentDate;
+	
+	@Field("otherShipmentDetails")
 	private String otherShipmentDetails;
+	
+	@Field("shipmentItems")
 	private List<ShipmentItems> shipmentItems;
 
 	public Shipments() {

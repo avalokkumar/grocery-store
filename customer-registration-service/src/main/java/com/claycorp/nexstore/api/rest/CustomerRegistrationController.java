@@ -1,6 +1,7 @@
 package com.claycorp.nexstore.api.rest;
 
 import java.net.URI;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,6 +24,8 @@ import com.claycorp.nexstore.api.model.UserVo;
 import com.claycorp.nexstore.api.repository.ArticlesRepository;
 import com.claycorp.nexstore.api.service.CustomerRegistrationService;
 import com.claycorp.nexstore.api.util.ResponseBuilder;
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
 
 /**
  * Controller to routing the customer registration request to appropriate
@@ -32,8 +35,11 @@ import com.claycorp.nexstore.api.util.ResponseBuilder;
  *
  */
 @RestController
-@RequestMapping(path = "/claycorp/api/v1")
+@RequestMapping(path = "/claycorp/v1")
 public class CustomerRegistrationController {
+
+	@Autowired
+	private EurekaClient client;
 
 	@Autowired
 	private ArticlesRepository articleRepo;
@@ -43,6 +49,19 @@ public class CustomerRegistrationController {
 
 	@Autowired
 	private ResponseBuilder<UserVo> responseBuilder;
+
+	@GetMapping("clientinfo")
+	public ResponseEntity<List<String>> getClientInfo() {
+
+		return ResponseEntity.ok().body(Arrays.asList("Value 1", "Value 2"));
+	}
+
+	@GetMapping("serviceinfo")
+	public String getServiceInfo() {
+		InstanceInfo instanceInfo = client.getNextServerFromEureka("CUSTOMER-ORDER-SERVICE", false);
+
+		return instanceInfo.getHomePageUrl();
+	}
 
 	@GetMapping(path = "/customers", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<CustomResponse<UserVo>> getAllCustomerDetail() {
@@ -85,4 +104,11 @@ public class CustomerRegistrationController {
 		List<Articles> articles = articleRepo.findAll();
 		return ResponseEntity.ok().body(articles);
 	}
+
+	@GetMapping("hello")
+	public ResponseEntity<String> sayHello() {
+
+		return ResponseEntity.ok().body("Hello Clayman");
+	}
+
 }

@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.Arrays;
 import java.util.Collections;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,9 +26,11 @@ import com.claycorp.nexstore.api.service.ShipmentService;
 import com.claycorp.nexstore.api.util.ResponseBuilder;
 
 @Controller
-@RequestMapping(path = "/claycorp/api/v1")
+@RequestMapping(path = "/claycorp/v1")
 public class ShipmentController {
-
+	
+	private final Logger logger = LoggerFactory.getLogger(ShipmentController.class);
+	
 	@Autowired
 	private ResponseBuilder<ShipmentsVo> responseBuilder;
 

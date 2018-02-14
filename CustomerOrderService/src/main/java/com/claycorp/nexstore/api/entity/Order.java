@@ -17,6 +17,7 @@ public class Order {
 
 	@Id
 	private String id;
+	
 	private RefOrderStatusCodes statusCode;
 	
 	@JsonDeserialize(using=LocalDateDeserializer.class)
