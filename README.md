@@ -4,10 +4,10 @@
 
 Users
 
-Customers
-Employees
-Caretaker
-Products
+1. Customers
+2. Employees
+3. Caretakers
+4. Products
 
 ## Microservices for Grocery Store
 
