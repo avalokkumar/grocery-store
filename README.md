@@ -1,4 +1,4 @@
-# grocery-store
+# Online grocery-store
 
 ## Micro Services built on Spring Boot with Mongo DB for E-Commerce application.
 
